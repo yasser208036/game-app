@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background: #1c1c1c;
+}
+/* .container {
+  width: calc(100% - 100px);
+} */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px gray;
+  border-radius: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #f48924;
+  border-radius: 6px;
+}
+/* start Section Separator */
+.spikes {
+  position: relative;
+  background: #1c1c1c;
+  height: 0px;
+  transform: rotate(180deg);
+}
+.spikes::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  left: -0%;
+  top: 100%;
+  z-index: 10;
+  display: block;
+  height: 50px;
+  background-size: 50px 100%;
+  background-image: linear-gradient(135deg, #1c1c1c 25%, transparent 25%),
+    linear-gradient(225deg, #1c1c1c 25%, transparent 25%);
+  background-position: 0 0;
+}
+/* end Section Separator */
+/* start main title */
+.main-title {
+  border: 2px solid black;
+  border-radius: 30px;
+  position: relative;
+  z-index: 2;
+  margin: 40px auto 60px;
+  color: black;
+  padding: 10px 40px;
+  width: fit-content;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.main-title:hover {
+  border-color: white;
+  color: white;
+  transition-delay: 0.5s;
+}
+.main-title::before,
+.main-title::after {
+  content: "";
+  position: absolute;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #f48924;
+  transition: 0.5s;
+}
+.main-title::before {
+  left: -30px;
+}
+.main-title::after {
+  right: -30px;
+}
+.main-title:hover::before {
+  z-index: -1;
+  animation: left-move 0.5s linear forwards;
+}
+.main-title:hover::after {
+  z-index: -1;
+  animation: right-move 0.5s linear forwards;
+}
+@keyframes left-move {
+  50% {
+    left: 0;
+  }
+  100% {
+    left: 0;
+    border-radius: 30px 0 0 30px;
+    width: 51%;
+    height: 100%;
+  }
+}
+@keyframes right-move {
+  50% {
+    right: 0;
+  }
+  100% {
+    right: 0;
+    border-radius: 0 30px 30px 0;
+    width: 50%;
+    height: 100%;
+  }
+}
+/* end main title*/
